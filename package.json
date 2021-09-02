@@ -1,0 +1,19 @@
+{
+  "name": "mpe4jira",
+  "version": "1.0.0",
+  "description": "Markdown Preview Enhanced (MPE) is a markdown extension for Atom and Visual Studio Code. You can find more details about it, here:\r https://shd101wyy.github.io/markdown-preview-enhanced/#/",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amihayz/MPE4Jira.git"
+  },
+  "author": "Amihay Zer-Kavod",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amihayz/MPE4Jira/issues"
+  },
+  "homepage": "https://github.com/amihayz/MPE4Jira#readme"
+}

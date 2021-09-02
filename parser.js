@@ -22,7 +22,11 @@ module.exports = {
       return new Promise((resolve, reject) => {
           return resolve(markdown);
       });
-  }
+  },
+  ExtendToSupportJiraMD,
+  jiraHeadersToMD,
+  jiraImageToMDTag,
+  jiraCodeToMDTag
 }
 
 function ExtendToSupportJiraMD(markdown) {
@@ -56,7 +60,7 @@ function jiraImageToMDTag(markdown){
       {
         let attr = ""
         splitContents = contents.split("|")
-        if (splitContents.size > 1 )
+        if (splitContents.length > 1 )
             attr = splitContents[1]
         return `<img src="${splitContents[0]}" ${attr}></img>`
       }
