@@ -16,15 +16,30 @@ https://shd101wyy.github.io/markdown-preview-enhanced/#/installation
 
 3. Extend MPE with Jira:
 
+You can either edit it with the following code or, just replace **~/.mume/parser.js** file in the following fashion:
 
-Click **Ctrl-shift-P** then write
+Open window **command prompt** and type the following commands:
+
+```bash
+> cd .mume
+> curl -o parser.js https://raw.githubusercontent.com/amihayz/MPE4Jira/main/parser.js
 ```
 
+**Note:** its assuming the command prompt opens in your user directory
+Now you can jump to step 6. to reload the extension.
+
+Or you can edit the changes in by doing the following:
+
+Click **Ctrl-shift-P** then write
+
+```
 Markdown Preview enhanced: Extend Parser
 ```
 
 The file **~/.mume/parser.js** will open in the editor.
-copy the following code into parser.js:
+
+
+Or copy the following code into parser.js:
 
 4. **Overwrite:**
 ```javascript
@@ -120,7 +135,7 @@ function jiraCodeToMDTag(markdown) {
 }
 ```
 
-## Now, for seeing your updates in Atom
+6. **Now, for seeing your updates in Atom**
 Run the following command it will reload the editor.
 * Hit Ctrl-shift-p then type
 ```
