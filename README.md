@@ -1,12 +1,12 @@
-h1. How To Preview Jira Markdown Format in Markdown Preview Enhanced plugin to Atom and VS Code
+# How To Preview Jira Markdown Format in Markdown Preview Enhanced plugin to Atom and VS Code
 
 Markdown Preview Enhanced (MPE) is a markdown extension for Atom and Visual Studio Code. You can find more details about it, here:
 https://shd101wyy.github.io/markdown-preview-enhanced/#/
 
-h2. MPE does not support Jira Markdown, But
+## MPE does not support Jira Markdown, But
 MPE is extensible, so we are going to leverage its power to support Jira Markdown style preview.
 
-h2. Steps:
+## Steps:
 1. Install MPE
 https://shd101wyy.github.io/markdown-preview-enhanced/#/installation
 1. You can open any Jira style markdown file in .md or markdown extension and click
@@ -18,27 +18,27 @@ https://shd101wyy.github.io/markdown-preview-enhanced/#/installation
 
 
 Click **Ctrl-shift-P** then write
+```
 
-{code}
 Markdown Preview enhanced: Extend Parser
-{code}
+```
 
 The file **~/.mume/parser.js** will open in the editor.
 copy the following code into parser.js:
 
 4. **Overwrite:**
+```javascript
 
-{code:javascript}
 onWillParseMarkdown: function(markdown) {
   return new Promise((resolve, reject)=> {
     return resolve(markdown)
   })
 },
-{code}
+```
 
 **To**
+```javascript
 
-{code:javascript}
 onWillParseMarkdown: function(markdown) {
   return new Promise((resolve, reject)=> {
     // extend parser to show jira style markdown:
@@ -47,11 +47,11 @@ onWillParseMarkdown: function(markdown) {
     return resolve(markdown)
   })
 },
-{code}
+```
 
 5. And copy&paste the next part at the **end** of the parser.js file:
 
-{code:javascript}
+```javascript
 
 function ExtendToSupportJiraMD(markdown) {
 
@@ -64,7 +64,7 @@ function ExtendToSupportJiraMD(markdown) {
 
 const CODE_REG = /^\s*(\{code\}).*$/gm
 // Map jira headers to markdown headers
-// Repalce h1. with #, h2. with ## and so on till h9.
+// Repalce # with #, ## with ## and so on till h9.
 function jiraHeadersToMD(markdown){
   for (let i=1;i<10;i++) {
     let dashes = "#".repeat(i);
@@ -118,14 +118,14 @@ function jiraCodeToMDTag(markdown) {
 
   return markdown
 }
+```
 
-{code}
-
-h2. Now, for seeing your updates in Atom
+## Now, for seeing your updates in Atom
 Run the following command it will reload the editor.
 * Hit Ctrl-shift-p then type
-{code}
+```
+
  Window: Reload
-{code}
+```
 
 and Open any .md file with the preview on and enjoy   
